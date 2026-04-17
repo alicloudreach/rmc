@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roshan Medical Centre Clinic — Your Health, Our Priority</title>
+  <meta name="description" content="Roshan Medical Centre Clinic offers compassionate, expert healthcare for the whole family. Book your appointment today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary:   #0e6abf;
+      --primary-d: #0a509a;
+      --accent:    #00b4a2;
+      --accent-d:  #00907f;
+      --neutral:   #f4f7fb;
+      --dark:      #0d1b2a;
+      --text:      #3a4a5c;
+      --muted:     #7a8fa6;
+      --white:     #ffffff;
+      --radius:    12px;
+      --shadow:    0 4px 24px rgba(14,106,191,.10);
+      --shadow-lg: 0 12px 48px rgba(14,106,191,.16);
+      --transition: .25s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; font-family: inherit; }
+
+    /* ── Utility ────────────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+    .section-label {
+      display: inline-block; font-size: .78rem; font-weight: 600;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--dark); line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 560px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 28px; border-radius: 50px;
+      font-weight: 600; font-size: .95rem;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--primary); color: var(--white);
+    }
+    .btn-primary:hover { background: var(--primary-d); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 2px solid rgba(255,255,255,.55);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.12); border-color: var(--white); }
+    .btn-accent { background: var(--accent); color: var(--white); }
+    .btn-accent:hover { background: var(--accent-d); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+    /* ── Navbar ─────────────────────────────────────────────────── */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 16px 0;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    .navbar.scrolled {
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(14,106,191,.10);
+    }
+    .navbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0;
+      font-weight: 700; font-size: 1.25rem; color: var(--white);
+    }
+    .navbar.scrolled .logo { color: var(--dark); }
+    .logo img {
+      height: 72px; width: auto; display: block;
+      transition: filter var(--transition);
+    }
+    .navbar:not(.scrolled) .logo img {
+      filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,.4));
+    }
+    .navbar.scrolled .logo img {
+      filter: none;
+    }
+    .footer .logo img {
+      filter: none;
+      height: 80px;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+    }
+    .nav-links a {
+      font-size: .9rem; font-weight: 500;
+      color: rgba(255,255,255,.85);
+      transition: color var(--transition);
+    }
+    .navbar.scrolled .nav-links a { color: var(--text); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: var(--white) !important;
+      padding: 9px 22px; border-radius: 50px;
+    }
+    .nav-cta:hover { background: var(--accent-d); transform: translateY(-1px); }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; border-radius: 2px;
+      background: var(--white); transition: all var(--transition);
+    }
+    .navbar.scrolled .hamburger span { background: var(--dark); }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--dark) 0%, #0e3d6e 55%, #0e6abf 100%);
+      overflow: hidden; padding-top: 80px;
+    }
+    .hero-bg-pattern {
+      position: absolute; inset: 0; pointer-events: none; opacity: .07;
+      background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .hero-blob {
+      position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+      width: min(640px, 60vw); height: min(640px, 60vw);
+      border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+      background: linear-gradient(135deg, rgba(0,180,162,.3), rgba(14,106,191,.4));
+      filter: blur(2px);
+      animation: morph 10s ease-in-out infinite alternate;
+    }
+    @keyframes morph {
+      to { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,180,162,.18); border: 1px solid rgba(0,180,162,.35);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: .8rem; font-weight: 600; color: #7de8df;
+      letter-spacing: .06em; margin-bottom: 24px;
+    }
+    .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--white); line-height: 1.15; margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: #7de8df; }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,.75);
+      max-width: 440px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 52px; flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1;
+    }
+    .hero-stat-label { font-size: .82rem; color: rgba(255,255,255,.6); margin-top: 4px; }
+    .hero-image-wrap {
+      position: relative; display: flex; justify-content: center;
+    }
+    .hero-img-card {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.4);
+      width: 100%; max-width: 460px;
+      aspect-ratio: 4/5;
+    }
+    .hero-img-card img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-floating-card {
+      position: absolute; bottom: -20px; left: -30px;
+      background: var(--white); border-radius: var(--radius);
+      padding: 16px 20px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 14px;
+      min-width: 210px;
+    }
+    .hfc-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: #e8f4ff; display: grid; place-items: center; flex-shrink: 0;
+    }
+    .hfc-icon svg { width: 24px; height: 24px; stroke: var(--primary); fill: none; stroke-width: 2; }
+    .hfc-text strong { display: block; font-size: .95rem; color: var(--dark); }
+    .hfc-text span { font-size: .8rem; color: var(--muted); }
+
+    /* ── Marquee trust bar ──────────────────────────────────────── */
+    .trust-bar { background: var(--neutral); padding: 18px 0; overflow: hidden; }
+    .trust-track {
+      display: flex; gap: 56px; animation: marquee 22s linear infinite;
+      width: max-content;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 600; font-size: .85rem; color: var(--muted);
+      white-space: nowrap;
+    }
+    .trust-item svg { width: 18px; height: 18px; fill: var(--accent); flex-shrink: 0; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ── Services ───────────────────────────────────────────────── */
+    .services { padding: 100px 0; background: var(--white); }
+    .services-header { text-align: center; margin-bottom: 60px; }
+    .services-header .section-sub { margin: 0 auto; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--neutral); border-radius: var(--radius);
+      padding: 36px 30px; transition: all var(--transition);
+      border: 2px solid transparent; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .service-card:hover { border-color: var(--accent); transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .service-card:hover::before { opacity: .05; }
+    .service-card:hover .svc-icon { background: var(--primary); }
+    .service-card:hover .svc-icon svg { stroke: var(--white); }
+    .svc-icon {
+      width: 54px; height: 54px; border-radius: 14px;
+      background: #dceeff; display: grid; place-items: center;
+      margin-bottom: 22px; transition: all var(--transition);
+    }
+    .svc-icon svg { width: 26px; height: 26px; stroke: var(--primary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+    .service-card p { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+    .svc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .85rem; font-weight: 600; color: var(--primary);
+      margin-top: 18px; transition: gap var(--transition);
+    }
+    .svc-link:hover { gap: 10px; }
+
+    /* ── About ──────────────────────────────────────────────────── */
+    .about { padding: 100px 0; background: var(--neutral); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .about-image-wrap { position: relative; }
+    .about-img-main {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-main img { width: 100%; aspect-ratio: 3/4; object-fit: cover; }
+    .about-img-secondary {
+      position: absolute; bottom: -30px; right: -30px;
+      width: 55%; border-radius: 18px; overflow: hidden;
+      box-shadow: 0 16px 48px rgba(14,106,191,.22);
+      border: 5px solid var(--white);
+    }
+    .about-img-secondary img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .about-exp-badge {
+      position: absolute; top: 30px; left: -20px;
+      background: var(--primary); color: var(--white);
+      border-radius: var(--radius); padding: 16px 20px; text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-exp-badge strong { display: block; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .about-exp-badge span { font-size: .75rem; opacity: .85; }
+    .about-content {}
+    .about-content .section-sub { margin-bottom: 32px; }
+    .about-checks {
+      display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px;
+    }
+    .about-check {
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .check-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #daf4f1; display: grid; place-items: center; flex-shrink: 0; margin-top: 2px;
+    }
+    .check-icon svg { width: 13px; height: 13px; stroke: var(--accent); fill: none; stroke-width: 2.5; }
+    .about-check p { font-size: .9rem; color: var(--text); }
+
+    /* ── Doctors ────────────────────────────────────────────────── */
+    .doctors { padding: 100px 0; background: var(--white); }
+    .doctors-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 56px; gap: 24px;
+    }
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 28px;
+    }
+    .doctor-card {
+      border-radius: var(--radius); overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 16px rgba(14,106,191,.08);
+      transition: all var(--transition);
+    }
+    .doctor-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .doctor-img {
+      position: relative; overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .doctor-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .doctor-card:hover .doctor-img img { transform: scale(1.04); }
+    .doctor-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(13,27,42,.7) 0%, transparent 55%);
+    }
+    .doctor-socials {
+      position: absolute; bottom: 16px; right: 16px;
+      display: flex; gap: 8px; opacity: 0; transition: opacity var(--transition);
+    }
+    .doctor-card:hover .doctor-socials { opacity: 1; }
+    .social-btn {
+      width: 34px; height: 34px; border-radius: 8px;
+      background: rgba(255,255,255,.9); display: grid; place-items: center;
+    }
+    .social-btn svg { width: 16px; height: 16px; stroke: var(--dark); fill: none; stroke-width: 2; }
+    .doctor-info { padding: 20px; }
+    .doctor-info h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .doctor-info .specialty {
+      font-size: .82rem; font-weight: 600; color: var(--accent); margin-bottom: 10px;
+    }
+    .doctor-info p { font-size: .82rem; color: var(--muted); }
+    .doctor-rating { display: flex; align-items: center; gap: 4px; margin-top: 10px; }
+    .stars { color: #f4b942; font-size: .85rem; }
+    .doctor-rating span { font-size: .78rem; color: var(--muted); }
+
+    /* ── Testimonials ───────────────────────────────────────────── */
+    .testimonials { padding: 100px 0; background: var(--dark); overflow: hidden; }
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+    .testimonials-header .section-title { color: var(--white); }
+    .testimonials-header .section-sub { color: rgba(255,255,255,.55); margin: 0 auto; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .testi-card {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius); padding: 32px 28px;
+      transition: background var(--transition);
+    }
+    .testi-card:hover { background: rgba(255,255,255,.09); }
+    .testi-stars { color: #f4b942; font-size: .95rem; margin-bottom: 16px; }
+    .testi-card p { color: rgba(255,255,255,.75); font-size: .92rem; line-height: 1.7; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; margin-top: 24px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%; overflow: hidden;
+      border: 2px solid rgba(255,255,255,.2); flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name { font-weight: 700; font-size: .9rem; color: var(--white); }
+    .testi-meta { font-size: .78rem; color: rgba(255,255,255,.4); }
+
+    /* ── Appointment / CTA ──────────────────────────────────────── */
+    .appointment { padding: 100px 0; background: var(--neutral); }
+    .appointment-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .appointment-content .section-sub { margin-bottom: 28px; }
+    .contact-info { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; }
+    .ci-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--white); box-shadow: var(--shadow);
+      display: grid; place-items: center; flex-shrink: 0;
+    }
+    .ci-icon svg { width: 20px; height: 20px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .ci-text strong { display: block; font-size: .88rem; font-weight: 700; color: var(--dark); }
+    .ci-text span { font-size: .82rem; color: var(--muted); }
+    .appointment-form {
+      background: var(--white); border-radius: 20px;
+      padding: 40px; box-shadow: var(--shadow-lg);
+    }
+    .appointment-form h3 {
+      font-size: 1.35rem; font-weight: 700; color: var(--dark); margin-bottom: 24px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: .82rem; font-weight: 600; color: var(--text); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px; border-radius: 10px;
+      border: 1.5px solid #dce6f0; font-family: inherit;
+      font-size: .9rem; color: var(--dark);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      background: var(--white); width: 100%;
+    }
+    .form-group textarea { resize: none; height: 90px; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(14,106,191,.12);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0bec5; }
+    .form-submit { width: 100%; padding: 14px; font-size: 1rem; font-weight: 600; }
+    .form-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .footer { background: var(--white); color: var(--text); padding: 72px 0 28px; border-top: 1px solid #e4eaf1; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 56px;
+    }
+    .footer-brand .logo { margin-bottom: 16px; }
+    .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 280px; color: var(--muted); }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .fsocial {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--neutral); display: grid; place-items: center;
+      transition: background var(--transition);
+    }
+    .fsocial:hover { background: var(--primary); }
+    .fsocial:hover svg { stroke: var(--white); }
+    .fsocial svg { width: 17px; height: 17px; stroke: var(--muted); fill: none; stroke-width: 2; }
+    .footer-col h4 { font-size: .9rem; font-weight: 700; color: var(--dark); margin-bottom: 18px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: .85rem; color: var(--muted);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--primary); }
+    .footer-bottom {
+      border-top: 1px solid #e4eaf1;
+      padding-top: 28px; display: flex;
+      justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom p { font-size: .82rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: .82rem; color: var(--muted); transition: color var(--transition); }
+    .footer-links a:hover { color: var(--primary); }
+
+    /* ── Toast ──────────────────────────────────────────────────── */
+    #toast {
+      position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+      background: var(--dark); color: var(--white);
+      padding: 14px 22px; border-radius: var(--radius);
+      font-size: .9rem; font-weight: 500;
+      box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 10px;
+      transform: translateY(80px); opacity: 0;
+      transition: all .35s cubic-bezier(.68,-.55,.265,1.55);
+      pointer-events: none;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+    #toast svg { width: 20px; height: 20px; stroke: var(--accent); fill: none; stroke-width: 2.5; flex-shrink: 0; }
+
+    /* ── Scroll-to-top ──────────────────────────────────────────── */
+    #scrollTop {
+      position: fixed; bottom: 30px; left: 30px; z-index: 99;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--primary); color: var(--white);
+      display: grid; place-items: center;
+      box-shadow: var(--shadow-lg);
+      opacity: 0; transform: translateY(12px);
+      transition: all var(--transition); pointer-events: none;
+    }
+    #scrollTop.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    #scrollTop svg { width: 18px; height: 18px; stroke: var(--white); fill: none; stroke-width: 2.5; }
+
+    /* ── Mobile nav drawer ──────────────────────────────────────── */
+    .mobile-nav {
+      position: fixed; inset: 0; z-index: 99;
+      background: var(--dark); display: flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 32px;
+      transform: translateX(100%); transition: transform .35s ease;
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a {
+      font-size: 1.4rem; font-weight: 600; color: var(--white);
+      transition: color var(--transition);
+    }
+    .mobile-nav a:hover { color: var(--accent); }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .about-img-secondary { width: 48%; right: -10px; bottom: -20px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero p { margin: 0 auto 36px; }
+      .hero-image-wrap { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-image-wrap { margin-bottom: 60px; }
+      .appointment-inner { grid-template-columns: 1fr; }
+      .doctors-header { flex-direction: column; align-items: flex-start; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-floating-card { left: 0; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="#" class="logo">
+      <img src="logo.svg" alt="Roshan Medical Centre" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#doctors">Our Doctors</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services"      onclick="closeMobile()">Services</a>
+  <a href="#about"         onclick="closeMobile()">About</a>
+  <a href="#doctors"       onclick="closeMobile()">Our Doctors</a>
+  <a href="#testimonials"  onclick="closeMobile()">Reviews</a>
+  <a href="#appointment"   onclick="closeMobile()">Book Appointment</a>
+</div>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-blob"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span></span> Trusted by 15,000+ Patients</div>
+      <h1>Your Health Is Our <em>Priority</em></h1>
+      <p>Compassionate, expert medical care for every stage of life — delivered by board-certified physicians in a warm, welcoming environment.</p>
+      <div class="hero-ctas">
+        <a href="#appointment" class="btn btn-accent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book Appointment
+        </a>
+        <a href="#services" class="btn btn-outline">View Services</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">25+</div>
+          <div class="hero-stat-label">Specialist Doctors</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">15k</div>
+          <div class="hero-stat-label">Happy Patients</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">18</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-img-card">
+        <img
+          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&q=80"
+          alt="Friendly doctor at Roshan Medical Centre Clinic"
+          loading="eager"
+        />
+      </div>
+      <div class="hero-floating-card">
+        <div class="hfc-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="hfc-text">
+          <strong>Available Today</strong>
+          <span>Next slot: 10:30 AM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Trust Bar ───────────────────────────────────────────────── -->
+<div class="trust-bar" aria-hidden="true">
+  <div class="trust-track">
+    <!-- items duplicated for seamless loop -->
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Accredited Facility
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Board-Certified Physicians
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      24/7 Emergency Care
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Insurance Accepted
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Telehealth Available
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Same-Day Appointments
+    </div>
+    <!-- duplicate -->
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Accredited Facility
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Board-Certified Physicians
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      24/7 Emergency Care
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Insurance Accepted
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Telehealth Available
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Same-Day Appointments
+    </div>
+  </div>
+</div>
+
+<!-- ── Services ────────────────────────────────────────────────── -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Comprehensive Medical Services</h2>
+      <p class="section-sub">From routine check-ups to specialized care, we provide everything your family needs under one roof.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>General Medicine</h3>
+        <p>Comprehensive primary care for adults and children — from annual physicals to chronic disease management.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Urgent Care</h3>
+        <p>Walk-in and same-day appointments for non-emergency conditions that still need prompt attention.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Cardiology</h3>
+        <p>Advanced heart care including EKG, stress testing, echocardiograms, and cardiovascular risk assessment.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Pediatrics</h3>
+        <p>Dedicated child healthcare from newborns through adolescence, including vaccinations and developmental screenings.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Diagnostics & Lab</h3>
+        <p>In-house laboratory and imaging services with rapid turnaround so your doctor can make informed decisions quickly.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Telehealth</h3>
+        <p>Secure video consultations from the comfort of your home — same expert care, zero commute.</p>
+        <a href="#appointment" class="svc-link">Book Now →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── About ───────────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-image-wrap">
+      <div class="about-exp-badge">
+        <strong>18+</strong>
+        <span>Years of Care</span>
+      </div>
+      <div class="about-img-main">
+        <img
+          src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=700&q=80"
+          alt="Medical team at Roshan Medical Centre Clinic"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-img-secondary">
+        <img
+          src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=500&q=80"
+          alt="Modern clinic equipment"
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Healthcare Built Around You</h2>
+      <p class="section-sub">Founded in 2006, Roshan Medical Centre Clinic has grown into a trusted community health centre — combining cutting-edge medicine with genuine compassion for every patient we serve.</p>
+      <div class="about-checks">
+        <div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>State-of-the-art facility with the latest diagnostic technology and private consultation rooms.</p>
+        </div>
+        <div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>A multidisciplinary team of 25+ board-certified specialists working collaboratively on your care plan.</p>
+        </div>
+        <div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Online portal for test results, prescriptions, and secure messaging with your care team — 24/7.</p>
+        </div>
+        <div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Accepting most major insurance plans, with transparent pricing and flexible payment options.</p>
+        </div>
+      </div>
+      <a href="#appointment" class="btn btn-primary">Schedule a Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Doctors ─────────────────────────────────────────────────── -->
+<section class="doctors" id="doctors">
+  <div class="container">
+    <div class="doctors-header">
+      <div>
+        <div class="section-label">Our Team</div>
+        <h2 class="section-title">Meet Our Specialists</h2>
+      </div>
+      <a href="#appointment" class="btn btn-primary">View All Doctors</a>
+    </div>
+    <div class="doctors-grid">
+
+      <div class="doctor-card">
+        <div class="doctor-img">
+          <img
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80"
+            alt="Dr. Sarah Mitchell"
+            loading="lazy"
+          />
+          <div class="doctor-overlay"></div>
+          <div class="doctor-socials">
+            <div class="social-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Sarah Mitchell</h3>
+          <div class="specialty">General Medicine</div>
+          <p>15 years experience · Harvard Medical School</p>
+          <div class="doctor-rating"><span class="stars">★★★★★</span><span>5.0 (142 reviews)</span></div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-img">
+          <img
+            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80"
+            alt="Dr. James Okafor"
+            loading="lazy"
+          />
+          <div class="doctor-overlay"></div>
+          <div class="doctor-socials">
+            <div class="social-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. James Okafor</h3>
+          <div class="specialty">Cardiology</div>
+          <p>12 years experience · Johns Hopkins University</p>
+          <div class="doctor-rating"><span class="stars">★★★★★</span><span>4.9 (98 reviews)</span></div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-img">
+          <img
+            src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=80"
+            alt="Dr. Priya Sharma"
+            loading="lazy"
+          />
+          <div class="doctor-overlay"></div>
+          <div class="doctor-socials">
+            <div class="social-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Priya Sharma</h3>
+          <div class="specialty">Pediatrics</div>
+          <p>10 years experience · Stanford Medicine</p>
+          <div class="doctor-rating"><span class="stars">★★★★★</span><span>5.0 (211 reviews)</span></div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="doctor-img">
+          <img
+            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500&q=80"
+            alt="Dr. Marcus Webb"
+            loading="lazy"
+          />
+          <div class="doctor-overlay"></div>
+          <div class="doctor-socials">
+            <div class="social-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="doctor-info">
+          <h3>Dr. Marcus Webb</h3>
+          <div class="specialty">Orthopedics</div>
+          <p>18 years experience · Mayo Clinic</p>
+          <div class="doctor-rating"><span class="stars">★★★★★</span><span>4.8 (174 reviews)</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ────────────────────────────────────────────── -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div class="section-label">Patient Stories</div>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <p class="section-sub">Real words from real patients who trust Roshan Medical Centre Clinic with their health.</p>
+    </div>
+    <div class="testi-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Dr. Mitchell is incredibly thorough and takes the time to explain everything. I've never felt more understood by a doctor. Scheduling was easy and the clinic is spotless."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Amanda K." loading="lazy"/>
+          </div>
+          <div>
+            <div class="testi-name">Amanda K.</div>
+            <div class="testi-meta">Patient since 2019</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"My kids actually look forward to their check-ups because of Dr. Sharma. She has a wonderful way with children. The telehealth option has been a lifesaver for minor illnesses."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Robert M." loading="lazy"/>
+          </div>
+          <div>
+            <div class="testi-name">Robert M.</div>
+            <div class="testi-meta">Patient since 2021</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"After my cardiac scare, Dr. Okafor and his team were exceptional. Fast diagnosis, clear treatment plan, and follow-up that felt genuinely personal. I cannot recommend them enough."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Linda T." loading="lazy"/>
+          </div>
+          <div>
+            <div class="testi-name">Linda T.</div>
+            <div class="testi-meta">Patient since 2020</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Appointment ─────────────────────────────────────────────── -->
+<section class="appointment" id="appointment">
+  <div class="container appointment-inner">
+    <div class="appointment-content">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Ready to Take the First Step?</h2>
+      <p class="section-sub">Our team is here to help you book the right appointment with the right specialist — quickly and easily.</p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.58 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 5.45 5.45l.92-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>+1 (555) 234-5678</strong>
+            <span>Mon–Fri 8 AM – 7 PM, Sat 9 AM – 3 PM</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>hello@Roshan Medical Centreclinic.com</strong>
+            <span>We reply within 2 business hours</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="ci-text">
+            <strong>123 Wellness Avenue, Suite 400</strong>
+            <span>Springfield, IL 62701</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="appointment-form">
+      <h3>Book an Appointment</h3>
+      <form id="apptForm" novalidate method="POST" data-netlify="true" data-netlify-recaptcha="true">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="Jane" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Doe" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option>General Medicine</option>
+            <option>Urgent Care</option>
+            <option>Cardiology</option>
+            <option>Pediatrics</option>
+            <option>Diagnostics &amp; Lab</option>
+            <option>Telehealth</option>
+            <option>Orthopedics</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label for="time">Preferred Time</label>
+            <select id="time" name="time">
+              <option value="" disabled selected>Select a time…</option>
+              <option>8:00 AM</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">Additional Notes</label>
+          <textarea id="notes" name="notes" placeholder="Brief description of your concern (optional)…"></textarea>
+        </div>
+        <div data-netlify-recaptcha="true"></div>
+        <button type="submit" class="btn btn-accent form-submit">Confirm Appointment</button>
+        <p class="form-note">By submitting you agree to our Privacy Policy. We never share your data.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ──────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <img src="logo.svg" alt="Roshan Medical Centre" />
+        </a>
+        <p>Compassionate, expert healthcare for every stage of life. Serving Springfield and the surrounding communities since 2006.</p>
+        <div class="footer-socials">
+          <a href="#" class="fsocial" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="fsocial" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="fsocial" aria-label="Twitter/X">
+            <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Medicine</a></li>
+          <li><a href="#services">Urgent Care</a></li>
+          <li><a href="#services">Cardiology</a></li>
+          <li><a href="#services">Pediatrics</a></li>
+          <li><a href="#services">Diagnostics &amp; Lab</a></li>
+          <li><a href="#services">Telehealth</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#doctors">Our Doctors</a></li>
+          <li><a href="#testimonials">Patient Reviews</a></li>
+          <li><a href="#appointment">Careers</a></li>
+          <li><a href="#appointment">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <ul>
+          <li><a href="#">Mon–Fri: 8 AM – 7 PM</a></li>
+          <li><a href="#">Saturday: 9 AM – 3 PM</a></li>
+          <li><a href="#">Sunday: Closed</a></li>
+          <li><a href="#appointment" style="color:var(--accent);font-weight:600">Emergency: 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Roshan Medical Centre Clinic. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">HIPAA Notice</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Toast notification ──────────────────────────────────────── -->
+<div id="toast" role="alert" aria-live="polite">
+  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+  Appointment request sent! We'll contact you within 2 hours.
+</div>
+
+<!-- ── Scroll to top ───────────────────────────────────────────── -->
+<button id="scrollTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- ── JavaScript ──────────────────────────────────────────────── -->
+<script>
+  /* Navbar scroll state */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  /* Hamburger / mobile nav */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMobile() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+    document.body.style.overflow = '';
+  }
+
+  /* Scroll to top */
+  document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* Set min date on date picker to today */
+  const dateInput = document.getElementById('date');
+  if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+
+  /* Appointment form submission */
+  document.getElementById('apptForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const required = this.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if (!el.value.trim()) {
+        el.style.borderColor = '#e53935';
+        valid = false;
+        el.addEventListener('input', () => el.style.borderColor = '', { once: true });
+      }
+    });
+    if (!valid) return;
+
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    /* Simulate async submission */
+    setTimeout(() => {
+      btn.textContent = 'Confirm Appointment';
+      btn.disabled = false;
+      this.reset();
+      showToast();
+    }, 1200);
+  });
+
+  function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 5000);
+  }
+
+  /* Intersection Observer — fade-in cards */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.service-card, .doctor-card, .testi-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
