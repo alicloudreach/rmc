@@ -1119,7 +1119,7 @@
 <!-- ── Toast notification ──────────────────────────────────────── -->
 <div id="toast" role="alert" aria-live="polite">
   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-  Appointment request sent! We'll contact you within 2 hours.
+  Appointment request sent! We'll contact you soon. Thank you!
 </div>
 
 <!-- ── Scroll to top ───────────────────────────────────────────── -->
@@ -1175,18 +1175,51 @@
     });
     if (!valid) return;
 
-    const btn = this.querySelector('.form-submit');
+    /*const btn = this.querySelector('.form-submit');
     btn.textContent = 'Sending…';
-    btn.disabled = true;
+    btn.disabled = true;*/
 
     /* Simulate async submission */
-    setTimeout(() => {
+    /*setTimeout(() => {
       btn.textContent = 'Confirm Appointment';
       btn.disabled = false;
       this.reset();
       showToast();
     }, 1200);
+  });*/
+    const btn = this.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const payload = {
+      firstName: document.getElementById('fname').value,
+      lastName:  document.getElementById('lname').value,
+      email:     document.getElementById('email').value,
+      phone:     document.getElementById('phone').value,
+      service:   document.getElementById('service').value,
+      date:      document.getElementById('date').value,
+      time:      document.getElementById('time').value,
+      notes:     document.getElementById('notes').value,
+    };
+
+    fetch('https://prod-20.canadaeast.logic.azure.com:443/workflows/c6cd711e511649469cc860482c3b8534/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=HWEIVnhuYogB05X6Runo24FwDV3d4qGtyu5Pm99Al9s', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      btn.textContent = 'Confirm Appointment';
+      btn.disabled = false;
+      document.getElementById('apptForm').reset();
+      showToast();
+    })
+    .catch(() => {
+      btn.textContent = 'Confirm Appointment';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us directly or try again.');
+    });
   });
+
 
   function showToast() {
     const toast = document.getElementById('toast');
