@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roshan Medical Centre Clinic — Your Health, Our Priority</title>
-  <meta name="description" content="Roshan Medical Centre Clinic offers compassionate, expert healthcare for the whole family. Book your appointment today." />
+  <title>Roshan Medical Centre — Quality Healthcare You Deserve</title>
+  <meta name="description" content="Roshan Medical Centre offers compassionate, patient-centred family medicine in Langley, BC. Book your appointment today." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
@@ -324,9 +324,14 @@
     .doctor-img {
       position: relative; overflow: hidden;
       aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #dceeff 0%, #eaf6f4 100%);
+      display: flex; align-items: flex-end; justify-content: center;
     }
-    .doctor-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
-    .doctor-card:hover .doctor-img img { transform: scale(1.04); }
+    .doctor-img svg.avatar {
+      width: 78%; height: auto; display: block;
+      transition: transform .4s ease;
+    }
+    .doctor-card:hover .doctor-img svg.avatar { transform: scale(1.04); }
     .doctor-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(13,27,42,.7) 0%, transparent 55%);
@@ -542,8 +547,8 @@
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#doctors">Our Doctors</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
+      <!--<li><a href="#doctors">Our Doctors</a></li>
+      <li><a href="#testimonials">Reviews</a></li>-->
       <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -567,9 +572,9 @@
   <div class="hero-blob"></div>
   <div class="container hero-inner">
     <div class="hero-text">
-      <div class="hero-badge"><span></span> Trusted by 15,000+ Patients</div>
-      <h1>Your Health Is Our <em>Priority</em></h1>
-      <p>Compassionate, expert medical care for every stage of life — delivered by board-certified physicians in a warm, welcoming environment.</p>
+      <div class="hero-badge"><span></span> Quality Healthcare You Deserve</div>
+      <h1>Where Expertise <em>Meets Empathy</em></h1>
+      <p>At Roshan Medical Centre, we believe patients benefit from a close, personal relationship with their family physician — providing personalized care for your well-being.</p>
       <div class="hero-ctas">
         <a href="#appointment" class="btn btn-accent">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -579,16 +584,16 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-num">25+</div>
-          <div class="hero-stat-label">Specialist Doctors</div>
+          <div class="hero-stat-num">13+</div>
+          <div class="hero-stat-label">Services Offered</div>
         </div>
         <div>
-          <div class="hero-stat-num">15k</div>
-          <div class="hero-stat-label">Happy Patients</div>
+          <div class="hero-stat-num">5k+</div>
+          <div class="hero-stat-label">Patients Served</div>
         </div>
         <div>
-          <div class="hero-stat-num">18</div>
-          <div class="hero-stat-label">Years Experience</div>
+          <div class="hero-stat-num">Mon–Fri</div>
+          <div class="hero-stat-label">9 AM – 4 PM</div>
         </div>
       </div>
     </div>
@@ -600,15 +605,6 @@
           loading="eager"
         />
       </div>
-      <div class="hero-floating-card">
-        <div class="hfc-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <div class="hfc-text">
-          <strong>Available Today</strong>
-          <span>Next slot: 10:30 AM</span>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -617,55 +613,21 @@
 <div class="trust-bar" aria-hidden="true">
   <div class="trust-track">
     <!-- items duplicated for seamless loop -->
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Accredited Facility
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Board-Certified Physicians
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      24/7 Emergency Care
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Insurance Accepted
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Telehealth Available
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Same-Day Appointments
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Family Medicine</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Chronic Disease Management</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Telemedicine Available</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Women &amp; Children's Health</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>MSP Accepted</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>MYLE Patient Portal</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Vaccinations &amp; Travel Vaccines</div>
     <!-- duplicate -->
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Accredited Facility
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Board-Certified Physicians
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      24/7 Emergency Care
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Insurance Accepted
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Telehealth Available
-    </div>
-    <div class="trust-item">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Same-Day Appointments
-    </div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Family Medicine</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Chronic Disease Management</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Telemedicine Available</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Women &amp; Children's Health</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>MSP Accepted</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>MYLE Patient Portal</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Vaccinations &amp; Travel Vaccines</div>
   </div>
 </div>
 
@@ -675,7 +637,7 @@
     <div class="services-header">
       <div class="section-label">What We Offer</div>
       <h2 class="section-title">Comprehensive Medical Services</h2>
-      <p class="section-sub">From routine check-ups to specialized care, we provide everything your family needs under one roof.</p>
+      <p class="section-sub">From preventive care and vaccinations to chronic disease management — we provide everything your family needs under one roof.</p>
     </div>
     <div class="services-grid">
 
@@ -683,17 +645,17 @@
         <div class="svc-icon">
           <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <h3>General Medicine</h3>
-        <p>Comprehensive primary care for adults and children — from annual physicals to chronic disease management.</p>
+        <h3>General Checkup</h3>
+        <p>Promoting overall wellness through thorough general check-ups — your first step to a healthier you.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
       <div class="service-card">
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h3>Urgent Care</h3>
-        <p>Walk-in and same-day appointments for non-emergency conditions that still need prompt attention.</p>
+        <h3>Vaccinations</h3>
+        <p>Protecting your health through timely vaccinations, including travel vaccines tailored for your destination.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
@@ -701,8 +663,8 @@
         <div class="svc-icon">
           <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
-        <h3>Cardiology</h3>
-        <p>Advanced heart care including EKG, stress testing, echocardiograms, and cardiovascular risk assessment.</p>
+        <h3>Heart Disease &amp; Hypertension</h3>
+        <p>Supporting heart health with comprehensive care — partnering with you to control hypertension and promote cardiovascular wellness.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
@@ -710,17 +672,17 @@
         <div class="svc-icon">
           <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </div>
-        <h3>Pediatrics</h3>
-        <p>Dedicated child healthcare from newborns through adolescence, including vaccinations and developmental screenings.</p>
+        <h3>Women &amp; Children's Health</h3>
+        <p>Empowering women's wellness and nurturing children's health — including antenatal and prenatal care.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
       <div class="service-card">
         <div class="svc-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
-        <h3>Diagnostics & Lab</h3>
-        <p>In-house laboratory and imaging services with rapid turnaround so your doctor can make informed decisions quickly.</p>
+        <h3>Diabetes &amp; COPD Management</h3>
+        <p>Empowering lives through diabetes education and management, and breathing easier with personalized COPD and asthma care.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
@@ -728,8 +690,8 @@
         <div class="svc-icon">
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h3>Telehealth</h3>
-        <p>Secure video consultations from the comfort of your home — same expert care, zero commute.</p>
+        <h3>Telemedicine</h3>
+        <p>Secure virtual consultations from the comfort of your home — the same expert, personal care without the commute.</p>
         <a href="#appointment" class="svc-link">Book Now →</a>
       </div>
 
@@ -762,24 +724,24 @@
     </div>
     <div class="about-content">
       <div class="section-label">About Us</div>
-      <h2 class="section-title">Healthcare Built Around You</h2>
-      <p class="section-sub">Founded in 2006, Roshan Medical Centre Clinic has grown into a trusted community health centre — combining cutting-edge medicine with genuine compassion for every patient we serve.</p>
+      <h2 class="section-title">A Close Relationship With Your Family Physician</h2>
+      <p class="section-sub">At Roshan Medical Centre, we believe that patients benefit from a close medical relationship with their family physician — where expertise meets empathy, delivering personalized care for your well-being.</p>
       <div class="about-checks">
         <div class="about-check">
           <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>State-of-the-art facility with the latest diagnostic technology and private consultation rooms.</p>
+          <p>Comprehensive family medicine from preventive check-ups to managing complex chronic conditions.</p>
+        </div>
+        <!--<div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>manage appointments, view records, and message your care team online.</p>
+        </div>-->
+        <div class="about-check">
+          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Referrals to trusted diagnostic partners.</p>
         </div>
         <div class="about-check">
           <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>A multidisciplinary team of 25+ board-certified specialists working collaboratively on your care plan.</p>
-        </div>
-        <div class="about-check">
-          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>Online portal for test results, prescriptions, and secure messaging with your care team — 24/7.</p>
-        </div>
-        <div class="about-check">
-          <div class="check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>Accepting most major insurance plans, with transparent pricing and flexible payment options.</p>
+          <p>Telemedicine options available so you can see your doctor from anywhere.</p>
         </div>
       </div>
       <a href="#appointment" class="btn btn-primary">Schedule a Visit</a>
@@ -787,165 +749,6 @@
   </div>
 </section>
 
-<!-- ── Doctors ─────────────────────────────────────────────────── -->
-<section class="doctors" id="doctors">
-  <div class="container">
-    <div class="doctors-header">
-      <div>
-        <div class="section-label">Our Team</div>
-        <h2 class="section-title">Meet Our Specialists</h2>
-      </div>
-      <a href="#appointment" class="btn btn-primary">View All Doctors</a>
-    </div>
-    <div class="doctors-grid">
-
-      <div class="doctor-card">
-        <div class="doctor-img">
-          <img
-            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80"
-            alt="Dr. Sarah Mitchell"
-            loading="lazy"
-          />
-          <div class="doctor-overlay"></div>
-          <div class="doctor-socials">
-            <div class="social-btn" title="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="doctor-info">
-          <h3>Dr. Sarah Mitchell</h3>
-          <div class="specialty">General Medicine</div>
-          <p>15 years experience · Harvard Medical School</p>
-          <div class="doctor-rating"><span class="stars">★★★★★</span><span>5.0 (142 reviews)</span></div>
-        </div>
-      </div>
-
-      <div class="doctor-card">
-        <div class="doctor-img">
-          <img
-            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80"
-            alt="Dr. James Okafor"
-            loading="lazy"
-          />
-          <div class="doctor-overlay"></div>
-          <div class="doctor-socials">
-            <div class="social-btn" title="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="doctor-info">
-          <h3>Dr. James Okafor</h3>
-          <div class="specialty">Cardiology</div>
-          <p>12 years experience · Johns Hopkins University</p>
-          <div class="doctor-rating"><span class="stars">★★★★★</span><span>4.9 (98 reviews)</span></div>
-        </div>
-      </div>
-
-      <div class="doctor-card">
-        <div class="doctor-img">
-          <img
-            src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&q=80"
-            alt="Dr. Priya Sharma"
-            loading="lazy"
-          />
-          <div class="doctor-overlay"></div>
-          <div class="doctor-socials">
-            <div class="social-btn" title="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="doctor-info">
-          <h3>Dr. Priya Sharma</h3>
-          <div class="specialty">Pediatrics</div>
-          <p>10 years experience · Stanford Medicine</p>
-          <div class="doctor-rating"><span class="stars">★★★★★</span><span>5.0 (211 reviews)</span></div>
-        </div>
-      </div>
-
-      <div class="doctor-card">
-        <div class="doctor-img">
-          <img
-            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=500&q=80"
-            alt="Dr. Marcus Webb"
-            loading="lazy"
-          />
-          <div class="doctor-overlay"></div>
-          <div class="doctor-socials">
-            <div class="social-btn" title="LinkedIn">
-              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="doctor-info">
-          <h3>Dr. Marcus Webb</h3>
-          <div class="specialty">Orthopedics</div>
-          <p>18 years experience · Mayo Clinic</p>
-          <div class="doctor-rating"><span class="stars">★★★★★</span><span>4.8 (174 reviews)</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── Testimonials ────────────────────────────────────────────── -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="testimonials-header">
-      <div class="section-label">Patient Stories</div>
-      <h2 class="section-title">What Our Patients Say</h2>
-      <p class="section-sub">Real words from real patients who trust Roshan Medical Centre Clinic with their health.</p>
-    </div>
-    <div class="testi-grid">
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"Dr. Mitchell is incredibly thorough and takes the time to explain everything. I've never felt more understood by a doctor. Scheduling was easy and the clinic is spotless."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Amanda K." loading="lazy"/>
-          </div>
-          <div>
-            <div class="testi-name">Amanda K.</div>
-            <div class="testi-meta">Patient since 2019</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"My kids actually look forward to their check-ups because of Dr. Sharma. She has a wonderful way with children. The telehealth option has been a lifesaver for minor illnesses."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Robert M." loading="lazy"/>
-          </div>
-          <div>
-            <div class="testi-name">Robert M.</div>
-            <div class="testi-meta">Patient since 2021</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p>"After my cardiac scare, Dr. Okafor and his team were exceptional. Fast diagnosis, clear treatment plan, and follow-up that felt genuinely personal. I cannot recommend them enough."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Linda T." loading="lazy"/>
-          </div>
-          <div>
-            <div class="testi-name">Linda T.</div>
-            <div class="testi-meta">Patient since 2020</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ── Appointment ─────────────────────────────────────────────── -->
 <section class="appointment" id="appointment">
@@ -953,33 +756,33 @@
     <div class="appointment-content">
       <div class="section-label">Get in Touch</div>
       <h2 class="section-title">Ready to Take the First Step?</h2>
-      <p class="section-sub">Our team is here to help you book the right appointment with the right specialist — quickly and easily.</p>
+      <p class="section-sub">Our team is here to help you book the right appointment — quickly and easily. We look forward to caring for you and your family.</p>
       <div class="contact-info">
         <div class="contact-item">
           <div class="ci-icon">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.68 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.58 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 5.45 5.45l.92-1.82a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
           </div>
           <div class="ci-text">
-            <strong>+1 (555) 234-5678</strong>
-            <span>Mon–Fri 8 AM – 7 PM, Sat 9 AM – 3 PM</span>
+            <strong>905-820-1398</strong>
+            <span>Mon–Fri 9:00 AM – 4:00 PM</span>
           </div>
         </div>
-        <div class="contact-item">
+        <!--<div class="contact-item">
           <div class="ci-icon">
             <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
           <div class="ci-text">
-            <strong>hello@Roshan Medical Centreclinic.com</strong>
-            <span>We reply within 2 business hours</span>
+            <strong>MYLE Patient Portal</strong>
+            <span>Manage appointments &amp; records online</span>
           </div>
-        </div>
+        </div>-->
         <div class="contact-item">
           <div class="ci-icon">
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <div class="ci-text">
-            <strong>123 Wellness Avenue, Suite 400</strong>
-            <span>Springfield, IL 62701</span>
+            <strong>Unit 30 - 1675 The Chase</strong>
+            <span>Mississauga, ON L5M 5Y7</span>
           </div>
         </div>
       </div>
@@ -1012,13 +815,19 @@
           <label for="service">Service</label>
           <select id="service" name="service" required>
             <option value="" disabled selected>Select a service…</option>
-            <option>General Medicine</option>
-            <option>Urgent Care</option>
-            <option>Cardiology</option>
-            <option>Pediatrics</option>
-            <option>Diagnostics &amp; Lab</option>
-            <option>Telehealth</option>
-            <option>Orthopedics</option>
+            <option>General Checkup</option>
+            <option>Vaccinations</option>
+            <option>Travel Vaccines</option>
+            <option>Women's Health</option>
+            <option>Children's Health</option>
+            <option>Antenatal / Prenatal Care</option>
+            <option>Diabetes Management</option>
+            <option>Hypertension</option>
+            <option>Heart Disease</option>
+            <option>COPD Care</option>
+            <option>Asthma Management</option>
+            <option>Minor Procedures</option>
+            <option>Telemedicine</option>
           </select>
         </div>
         <div class="form-row">
@@ -1030,14 +839,18 @@
             <label for="time">Preferred Time</label>
             <select id="time" name="time">
               <option value="" disabled selected>Select a time…</option>
-              <option>8:00 AM</option>
               <option>9:00 AM</option>
+              <option>9:30 AM</option>
               <option>10:00 AM</option>
+              <option>10:30 AM</option>
               <option>11:00 AM</option>
+              <option>11:30 AM</option>
               <option>1:00 PM</option>
+              <option>1:30 PM</option>
               <option>2:00 PM</option>
+              <option>2:30 PM</option>
               <option>3:00 PM</option>
-              <option>4:00 PM</option>
+              <option>3:30 PM</option>
             </select>
           </div>
         </div>
@@ -1061,7 +874,7 @@
         <a href="#home" class="logo">
           <img src="logo.svg" alt="Roshan Medical Centre" />
         </a>
-        <p>Compassionate, expert healthcare for every stage of life. Serving Springfield and the surrounding communities since 2006.</p>
+        <p>Quality healthcare you deserve — where expertise meets empathy. Proudly serving Mississauga and surrounding communities.</p>
         <div class="footer-socials">
           <a href="#" class="fsocial" aria-label="Facebook">
             <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -1077,40 +890,37 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">General Medicine</a></li>
-          <li><a href="#services">Urgent Care</a></li>
-          <li><a href="#services">Cardiology</a></li>
-          <li><a href="#services">Pediatrics</a></li>
-          <li><a href="#services">Diagnostics &amp; Lab</a></li>
-          <li><a href="#services">Telehealth</a></li>
+          <li><a href="#services">General Checkup</a></li>
+          <li><a href="#services">Vaccinations</a></li>
+          <li><a href="#services">Women &amp; Children's Health</a></li>
+          <li><a href="#services">Chronic Disease Management</a></li>
+          <li><a href="#services">Minor Procedures</a></li>
+          <li><a href="#services">Telemedicine</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
           <li><a href="#about">About Us</a></li>
-          <li><a href="#doctors">Our Doctors</a></li>
-          <li><a href="#testimonials">Patient Reviews</a></li>
           <li><a href="#appointment">Careers</a></li>
-          <li><a href="#appointment">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Hours</h4>
         <ul>
-          <li><a href="#">Mon–Fri: 8 AM – 7 PM</a></li>
-          <li><a href="#">Saturday: 9 AM – 3 PM</a></li>
+          <li><a href="#">Mon–Fri: 9:00 AM – 4:00 PM</a></li>
+          <li><a href="#">Saturday: Closed</a></li>
           <li><a href="#">Sunday: Closed</a></li>
-          <li><a href="#appointment" style="color:var(--accent);font-weight:600">Emergency: 24/7</a></li>
+          <li><a href="tel:905-820-1398" style="color:var(--primary);font-weight:600">📞 905-820-1398</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Roshan Medical Centre Clinic. All rights reserved.</p>
-      <div class="footer-links">
+      <p>&copy; 2026 Roshan Medical Centre · Unit 30 - 1675 The Chase, Mississauga, ON L5M 5Y7 · 905-820-1398. All rights reserved.</p>
+      <!--<div class="footer-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Service</a>
-        <a href="#">HIPAA Notice</a>
+        <a href="#">HIPAA Notice</a>-->
       </div>
     </div>
   </div>
@@ -1119,7 +929,7 @@
 <!-- ── Toast notification ──────────────────────────────────────── -->
 <div id="toast" role="alert" aria-live="polite">
   <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-  Appointment request sent! We'll contact you soon. Thank you!
+  Appointment request sent! We'll contact you at our earliest convenience.
 </div>
 
 <!-- ── Scroll to top ───────────────────────────────────────────── -->
@@ -1175,51 +985,18 @@
     });
     if (!valid) return;
 
-    /*const btn = this.querySelector('.form-submit');
+    const btn = this.querySelector('.form-submit');
     btn.textContent = 'Sending…';
-    btn.disabled = true;*/
+    btn.disabled = true;
 
     /* Simulate async submission */
-    /*setTimeout(() => {
+    setTimeout(() => {
       btn.textContent = 'Confirm Appointment';
       btn.disabled = false;
       this.reset();
       showToast();
     }, 1200);
-  });*/
-    const btn = this.querySelector('.form-submit');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    const payload = {
-      firstName: document.getElementById('fname').value,
-      lastName:  document.getElementById('lname').value,
-      email:     document.getElementById('email').value,
-      phone:     document.getElementById('phone').value,
-      service:   document.getElementById('service').value,
-      date:      document.getElementById('date').value,
-      time:      document.getElementById('time').value,
-      notes:     document.getElementById('notes').value,
-    };
-
-    fetch('https://prod-20.canadaeast.logic.azure.com:443/workflows/c6cd711e511649469cc860482c3b8534/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=HWEIVnhuYogB05X6Runo24FwDV3d4qGtyu5Pm99Al9s', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    .then(() => {
-      btn.textContent = 'Confirm Appointment';
-      btn.disabled = false;
-      document.getElementById('apptForm').reset();
-      showToast();
-    })
-    .catch(() => {
-      btn.textContent = 'Confirm Appointment';
-      btn.disabled = false;
-      alert('Something went wrong. Please call us directly or try again.');
-    });
   });
-
 
   function showToast() {
     const toast = document.getElementById('toast');
